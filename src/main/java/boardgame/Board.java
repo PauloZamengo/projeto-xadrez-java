@@ -7,12 +7,16 @@ public class Board {
     private Piece[][] pieces;
 
     public Board(int rows, int columns) {
-        if (rows < 1 || columns < 1) {
-            throw new BoardException("Deve haver pelo menos uma linha e/ou uma coluna no tabuleiro!");
-        }
+        validateQuantityRowsAndColumns(rows, columns);
         this.rows = rows;
         this.columns = columns;
         pieces = new Piece[rows][columns];
+    }
+
+    private void validateQuantityRowsAndColumns(int rows, int columns) {
+        if (rows < 1 || columns < 1) {
+            throw new BoardException("Deve haver pelo menos uma linha e/ou uma coluna no tabuleiro!");
+        }
     }
 
     public int getRows() {
