@@ -30,6 +30,7 @@ public class Pawn extends ChessPiece {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
+            //TODO CORRIGIR MOVIMENTO UM DO PEÃO, POIS ELE PODE CAPTURAR UMA PEÇA
             //verificando possível movimento na primeira jogada
             p.setValues(position.getRow() - 2, position.getColumn());
             Position p2 = new Position(position.getRow() - 1, position.getColumn());
@@ -40,6 +41,7 @@ public class Pawn extends ChessPiece {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
+            //TODO CORRIGIR MOVIMENTO UM DO PEÃO, POIS ELE PODE CAPTURAR UMA PEÇA
             //verificando possível movimento diagonal esquerda
             p.setValues(position.getRow() - 1, position.getColumn() - 1);
             if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
