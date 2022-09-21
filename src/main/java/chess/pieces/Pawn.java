@@ -24,14 +24,11 @@ public class Pawn extends ChessPiece {
 
         //verificando movimentos possíveis do peão branco
         if (getColor() == Color.WHITE) {
-            //verificando possíveis movimentos uma posição acima
             p.setValues(position.getRow() - 1, position.getColumn());
             if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
-            //TODO CORRIGIR MOVIMENTO UM DO PEÃO, POIS ELE PODE CAPTURAR UMA PEÇA
-            //verificando possível movimento na primeira jogada
             p.setValues(position.getRow() - 2, position.getColumn());
             Position p2 = new Position(position.getRow() - 1, position.getColumn());
             if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)
@@ -41,46 +38,42 @@ public class Pawn extends ChessPiece {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
-            //TODO CORRIGIR MOVIMENTO UM DO PEÃO, POIS ELE PODE CAPTURAR UMA PEÇA
-            //verificando possível movimento diagonal esquerda
             p.setValues(position.getRow() - 1, position.getColumn() - 1);
             if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
-            //verificando possível movimento diagonal direita
             p.setValues(position.getRow() - 1, position.getColumn() + 1);
             if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
-        } else { //verificando possíveis movimentos do peão preto
-            //verificando possíveis movimentos uma posição abaixo
+
+        } else {
+            //verificando possíveis movimentos do peão preto
             p.setValues(position.getRow() + 1, position.getColumn());
             if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
-            //verificando possível movimento na primeira jogada
             p.setValues(position.getRow() + 2, position.getColumn());
             Position p2 = new Position(position.getRow() + 1, position.getColumn());
             if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)
-                    && getBoard().positionExists(p2)
+                    && (getBoard().positionExists(p2)
                     && !getBoard().thereIsAPiece(p2)
-                    && getMoveCount() == 0) {
+                    && getMoveCount() == 0)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
-            //verificando possível movimento diagonal esquerda
             p.setValues(position.getRow() + 1, position.getColumn() - 1);
             if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
 
-            //verificando possível movimento diagonal direita
-            p.setValues(position.getRow() +- 1, position.getColumn() + 1);
+            p.setValues(position.getRow() + 1, position.getColumn() + 1);
             if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
                 mat[p.getRow()][p.getColumn()] = true;
             }
+
         }
 
         return mat;
