@@ -66,7 +66,7 @@ public class Queen extends ChessPiece {
             mat[p.getRow()][p.getColumn()] = true;
         }
 
-        //verificando possíveis movimentos diagonal esquerda
+        // verificando possíveis movimentos diagonal esquerda
         p.setValues(position.getRow() - 1, position.getColumn() - 1);
         while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
@@ -99,7 +99,7 @@ public class Queen extends ChessPiece {
             mat[p.getRow()][p.getColumn()] = true;
         }
 
-        //verificando possíveis movimentos diagonal esquerda
+        // verificando possíveis movimentos diagonal esquerda
         p.setValues(position.getRow() + 1, position.getColumn() - 1);
         while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
