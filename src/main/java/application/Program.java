@@ -43,6 +43,12 @@ public class Program {
                     captured.add(capturedPiece);
                 }
 
+                if (chessMatch.getPromoted() != null) {
+                    System.out.println("Digita a peça para a promoção (B/N/R/Q): ");
+                    String type = sc.nextLine();
+                    chessMatch.replacePromotedPiece(type);
+                }
+
             } catch (ChessException | InputMismatchException ex) {
                 System.out.println(ex.getMessage());
                 sc.nextLine();
