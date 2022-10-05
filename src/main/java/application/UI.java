@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 public class UI {
 
-
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -47,7 +46,6 @@ public class UI {
         } catch (RuntimeException ex) {
             throw new InputMismatchException("Erro ao ler ChessPosition. Posições devem ser de a1 até h8");
         }
-
     }
 
     public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
@@ -64,9 +62,6 @@ public class UI {
             System.out.println("CHECKMATE!");
             System.out.println("VENCEDOR: " + chessMatch.getCurrentPlayer());
         }
-
-
-
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
